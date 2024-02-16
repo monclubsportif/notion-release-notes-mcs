@@ -19,6 +19,9 @@ inputs:
   products:
     description: 'Comma separated tag list of the products'
     required: false
+  commitURL:
+    description: 'URL of the release commit. Default to url based on GITHUB_REPOSITORY & GITHUB_SHA'
+    required: false
 outputs:
   status:
     description: 'The status of the update'
