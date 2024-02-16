@@ -5,9 +5,9 @@ const { markdownToBlocks } = require('@tryfabric/martian')
 try {
   // `who-to-greet` input defined in action metadata file
   const body = core.getInput('body')
-  const name = core.getInput('name')
+  const version = core.getInput('version')
   const token = core.getInput('token')
-  const tags = core.getInput('tags') || ''
+  const products = core.getInput('products') || ''
   const database = core.getInput('database')
   const date = new Date().toISOString()
 
@@ -18,7 +18,7 @@ try {
   })
 
   const blocks = markdownToBlocks(body)
-  const tagArray = tags ? tags.split(',').flatMap(tag => { return { name: tag } }) : []
+  const tagArray = products ? products.split(',').flatMap(tag => { return { version: tag } }) : []
 
   core.debug('Creating page ...')
   notion.pages.create({
@@ -26,21 +26,21 @@ try {
       database_id: database
     },
     properties: {
-      Name: {
+      Version: {
         title: [
           {
             text: {
-              content: name
+              content: version
             }
           }
         ]
       },
-      Date: {
+      'Date de mise en ligne': {
         date: {
           start: date
         }
       },
-      Tags: {
+      Produit: {
         multi_select: tagArray
       }
     },

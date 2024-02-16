@@ -12,7 +12,7 @@ First, you need to have an integration access token - which you can get from htt
 
 By default integrations cant access any content so you you *must* share your database with the integration you created earlier to be able to access it!
 
-## Notion Database
+## Notion Database (TODO: update this section to reflect MCS changelog table)
 
 This action expects a Notion database with the following properties:
 
