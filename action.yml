@@ -6,21 +6,21 @@ branding:
 inputs:
   token:
     description: 'Notion API token'
-    required: true    
+    required: true
   database:
     description: 'Parent database to add to'
-    required: true    
-  name:  
+    required: true
+  version:
     description: 'Name for the release'
     required: true
-  body:  
+  body:
     description: 'Body content for release notes'
     required: true
-  tags:  
-    description: 'Comma separated tag list'
+  products:
+    description: 'Comma separated tag list of the products'
     required: false
 outputs:
-  status: 
+  status:
     description: 'The status of the update'
 runs:
   using: 'node12'

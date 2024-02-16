@@ -19215,6 +19215,14 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ 7282:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
+
+/***/ }),
+
 /***/ 5477:
 /***/ ((module) => {
 
@@ -19331,6 +19339,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(4799)
 const { Client, LogLevel } = __nccwpck_require__(1075)
 const { markdownToBlocks } = __nccwpck_require__(4708)
+const { env } = __nccwpck_require__(7282)
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -19338,6 +19347,7 @@ try {
   const version = core.getInput('version')
   const token = core.getInput('token')
   const products = core.getInput('products') || ''
+  const commitURL = core.getInput('commitURL') || `https://github.com/${env.GITHUB_REPOSITORY}/commit/${env.GITHUB_SHA}`
   const database = core.getInput('database')
   const date = new Date().toISOString()
 
@@ -19372,6 +19382,9 @@ try {
       },
       Produit: {
         multi_select: tagArray
+      },
+      'PR/Commit': {
+        url: commitURL
       }
     },
     children: blocks
