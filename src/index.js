@@ -18,7 +18,7 @@ try {
   })
 
   const blocks = markdownToBlocks(body)
-  const tagArray = products ? products.split(',').flatMap(tag => { return { version: tag } }) : []
+  const tagArray = products ? products.split(',').flatMap(tag => { return { name: tag } }) : []
 
   core.debug('Creating page ...')
   notion.pages.create({
