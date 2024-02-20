@@ -19390,9 +19390,11 @@ try {
     children: blocks
   }).then((result) => {
     core.debug(`${result}`)
+    core.info('🎉 Changelog published to Notion!')
     core.setOutput('status', 'complete')
   })
 } catch (error) {
+  core.info('❌ Changelog failed to be published (see error in error message).')
   core.setFailed(error.message)
 }
 
